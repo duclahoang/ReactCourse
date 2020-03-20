@@ -1,64 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import faker from 'faker'
-import ApprovalCard from './component/Example1/ApprovalCard'
-import CommentDetail from './component/Example1/CommentDetail'
-import SeasonDisplay from './component/Example2/SeasonDisplay'
+
+import App1 from './component/Example1/App1'
+import App2 from './component/Example2/App2'
+import App3 from './component/Example3/App3'
+import App4 from './component/Example4/App4'
 
 
-class App extends React.Component {
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            latitude: null, errMes: ""
-        }
-
-    }
-
-    componentDidMount() {
-        console.log("ComponentDidMount")
-        navigator.geolocation.getCurrentPosition(
-            (pos) => {
-                console.log(pos)
-                this.setState({
-                    latitude: pos.coords.latitude
-                })
-            },
-            (err) => {
-                this.setState({ errMes: err.message })
-                console.log(err)
-            }
-        );
-    }
-
-    componentDidUpdate() {
-        console.log("componentDidUpdate")
-    }
-
-    componentWillUnmount() {
-        console.log("componentWillUnmount")
-    }
-
-    render() {
-        if (this.state.errMes) {
-            return (
-                <div>Error: {this.state.errMes}
-                </div>
-            )
-        }
-        return (
-            <div>
-                <div>
-                    <SeasonDisplay
-                        lat={this.state.latitude}
-                    />
-                </div>
-            </div>
-        )
-    }
-}
-
-ReactDOM.render(<App />,
+ReactDOM.render(<App4 />,
     document.querySelector("#root")
 )
