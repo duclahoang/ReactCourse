@@ -1,7 +1,11 @@
 
 export default (state=[], action) => {
+    
     if(action.type==="FETCH_POSTS"){
-        return [...state, action.payload]
+        
+        return action.payload
+        // return [...action.payload.data]
     }
+
     return state
 }
